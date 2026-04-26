@@ -10,6 +10,23 @@ typedef struct{
     int score;
         }Joueur;
 
+Joueur *connexion(){
+    int nbj;
+    printf("Veuillez saisir le nombres de joueurs\n");
+    scanf("%d", &nbj);
+    Joueur *j = malloc(nbj*sizeof(Joueur));
+    if(j == NULL){
+        printf("Erreur d'allocation 1");
+    }
+    for(int i=0; i<nbj; i++){
+        printf("Veuillez choisir votre nom:\n");
+        scanf("%s", j[i].nom);
+        j[i].id = i+1;
+        j->score = 0;
+    }
+    return j;
+}
+
 int *pioche(int *tab){
     int i, j, nb1 = 0, nb2 = 0, tmp = 0;
     for(i=0; i<SIZE; i++){
@@ -38,16 +55,23 @@ int tirer_carte(int *tab, int *indice_act){
 
 int main(){
     srand(time(NULL));
+    Joueur *partie = NULL;
+    partie = connexion();
     int *pioche_carte = malloc(SIZE*sizeof(int));
     int *indice_pioche = malloc(sizeof(int));
     if(pioche == NULL){
-        printf("Erreur d'allocation");
+        printf("Erreur d'allocation 2");
     }
     if(indice_pioche == NULL){
-        printf("Erreur d'allocation 2");
+        printf("Erreur d'allocation 3");
     }
     pioche(pioche_carte);
     *indice_pioche = 0;
     int c = tirer_carte(pioche_carte, indice_pioche);
+    free(partie);
+    free(indice_pioche);
+    for(int k =0; k<SIZE; k++){
+        free(pioche_carte[k]);
+    }
     return 0;
 }
