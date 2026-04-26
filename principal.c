@@ -12,7 +12,7 @@ typedef struct{
 
 Joueur *connexion(){
     int nbj;
-    printf("Veuillez saisir le nombres de joueurs\n");
+    printf("Veuillez saisir le nombre de joueurs\n");
     scanf("%d", &nbj);
     Joueur *j = malloc(nbj*sizeof(Joueur));
     if(j == NULL){
@@ -69,9 +69,7 @@ int main(){
     *indice_pioche = 0;
     int c = tirer_carte(pioche_carte, indice_pioche);
     free(partie);
+    free(pioche_carte);
     free(indice_pioche);
-    for(int k =0; k<SIZE; k++){
-        free(pioche_carte[k]);
-    }
     return 0;
 }
