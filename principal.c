@@ -13,7 +13,9 @@ typedef struct{
 Joueur *connexion(){
     int nbj;
     printf("Veuillez saisir le nombre de joueurs\n");
-    scanf("%d", &nbj);
+    do{
+        scanf("%d", &nbj);
+            }while(nbj<2);
     Joueur *j = malloc(nbj*sizeof(Joueur));
     if(j == NULL){
         printf("Erreur d'allocation 1");
@@ -52,6 +54,8 @@ int tirer_carte(int *tab, int *indice_act){
     (*indice_act)++; //When you draw a card, you advance in the tableau
     return carte; //the card drawn
 }
+
+
 
 int main(){
     srand(time(NULL));
