@@ -96,6 +96,14 @@ int gains(Joueur j, int carte){
 
 void jeu(Joueur *tab, int *indice, int nbj){
     int partie_gagner = 0, tour=1, choix, i;
+    for(i=0;i<nbj; i++){
+        if(tab[i].score>=200){
+            partie_gagner = 1;
+        }
+    }
+    if(indice>85){
+        partie_gagner = 1;
+    }
     while(partie_gagner!=1){
         if(tour == 1){
 
