@@ -1,0 +1,4 @@
+Schéma pour expliquer vite fait :
+https://whimsical.com/faa15/fliptek-ATgzMBzuGC76Jc7E64igdb
+
+Les .h y'en a besoin pour pouvoir faire des programmes dans des fichiers séparé. 
